@@ -22,6 +22,7 @@ indent_style = space
 
 # noinspection EditorConfigKeyCorrectness
 # Dotnet code style settings:
+
 [*.cs]
 dotnet_sort_system_directives_first = true
 

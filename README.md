@@ -1,54 +1,74 @@
-# DOTNET SOLUTION CONFIGS
+# 📦 dotnet-solution-o2-fresh-start
 
-## 📦 Objetivo do Repositório
-
-Este repositório foi criado para fornecer uma base padronizada que facilite a manutenção de boas práticas e o alinhamento entre equipes de desenvolvimento. Os arquivos aqui disponibilizados podem ser facilmente integrados em novos projetos ou adaptados para atender a necessidades específicas.
-
-## 📋 Como Usar
-
-1. Clone ou faça o download deste repositório.
-2. Copie os arquivos desejados para a raiz do seu projeto.
-3. Personalize as configurações, caso necessário, para atender a requisitos específicos.
-
-## ⚙️ Arquivos de Configuração
-
-### `.editorconfig`
-
-O arquivo `.editorconfig` define padrões de formatação e estilo para diferentes linguagens de programação e configurações específicas para o editor. Exemplos:
-- **Indentação**:
-  - 4 espaços para a maioria dos arquivos.
-  - 2 espaços para arquivos Markdown, JSON e YAML.
-- **Estilo C#**:
-  - Uso preferencial de tipos pré-definidos, como `int` em vez de `Int32`.
-  - Controle do uso de `var` para tipos evidentes ou implícitos.
-  - Padrões de nomenclatura:
-    - Constantes e campos públicos: `PascalCase`.
-    - Campos internos/privados: `_camelCase`.
-  - Configurações de espaçamento e novas linhas para maior clareza no código.
-- **Qualidade do Código**:
-  - Supressão de diagnósticos redundantes, como [CA1032](https://learn.microsoft.com/pt-br/dotnet/fundamentals/code-analysis/quality-rules/ca1032) e [CS8602](https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/compiler-messages/nullable-warnings#possible-dereference-of-null).
-  - Regras para namespaces baseados em escopo de arquivo.
-
-### `.globalconfig`
-
-O arquivo `.globalconfig` centraliza regras de estilo e qualidade que se aplicam globalmente ao projeto. Exemplos:
-- **Regras de Estilo IDE**:
-  - Avisos para simplificar inicializações de coleções e melhorar legibilidade.
-  - Reforça práticas modernas, como o uso de operadores de índice e intervalos ([IDE0056](https://learn.microsoft.com/pt-br/dotnet/fundamentals/code-analysis/style-rules/ide0056) e [IDE0057](https://learn.microsoft.com/pt-br/dotnet/fundamentals/code-analysis/style-rules/ide0057)).
-- **Supressão de Mensagens**:
-  - Remove mensagens redundantes, como usings desnecessários e variáveis não utilizadas.
-- **Qualidade do Código**:
-  - Detecta problemas de clareza, como parênteses desnecessários ou instruções `switch` simplificáveis.
-- Configurações modernas, como namespaces baseados em escopo de arquivo.
-
-### `Directory.Build.Props`
-
-O arquivo `Directory.Build.Props` define configurações de build compartilhadas entre todos os projetos no diretório:
-- **Framework**: Define o framework-alvo como `.NET 9.0`, garantindo que os projetos estejam alinhados com as versões mais recentes e seus recursos.
-- **Análise e Qualidade**: Habilita diagnósticos recomendados, tratando warnings como erros.
-- **SonarAnalyzer**: Adiciona o analisador `SonarAnalyzer.CSharp` para fortalecer a análise estática de código.
-- **Nullable**: Habilita a análise de referências nulas, aumentando a segurança e robustez do código.
+**Fresh Start para projetos em .NET Core**
+Este repositório é um _template_ inicializado para criar novas soluções .NET de forma limpa, padronizada e preparada para desenvolvimento profissional.
 
 ---
 
-Com esses arquivos, seu ambiente de desenvolvimento pode ser mais consistente e produtivo. 🚀
+## 📂 Estrutura Inicial
+
+O repositório é iniciado com os seguintes arquivos e configurações:
+
+- **Solution.slnx:** Estrutura modular baseada em diretórios, já preparada para organizar _Solution Items_ e projetos em `./src/`.
+- **.editorconfig:** Padrões de formatação e estilo de código aplicáveis a todo o repositório.
+- **.globalconfig:** Configurações globais do analisador de código C#.
+- **.gitignore:** Padrão oficial para projetos .NET (ignora binários, obj, configurações locais, etc).
+- **Directory.Build.Props:** Centraliza configurações MSBuild para toda a solução.
+
+---
+
+## ⚙️ Configurações do `Directory.Build.Props`
+
+O arquivo `Directory.Build.Props` já inclui boas práticas recomendadas para novos projetos .NET:
+
+- **Target Framework**: `net9.0`
+- **Usings implícitos**: `enable`
+- **Nullable Reference Types**: `enable`
+- **Análise de Código**:
+  - Nível: `latest`
+  - Modo: `Recommended`
+  - _Warnings_ tratados como erros
+  - _CodeStyle_ validado em tempo de build
+- **Analisador Adicional**:
+  - `SonarAnalyzer.CSharp` (v10.8.0.113526)
+
+---
+
+## 🧩 Conteúdo da Solution
+
+A solução `.slnx` já define a seguinte estrutura:
+
+```xml
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path=".globalconfig" />
+    <File Path="Directory.Build.Props" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/" />
+</Solution>
+```
+
+- `Solution Items`: Centraliza arquivos de configuração importantes.
+- `src`: Diretório reservado para novos projetos e módulos da solução.
+
+## 🚀 Como usar
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/thrsouza/dotnet-solution-o2-fresh-start.git
+```
+2. Abra a solução no Visual Studio ou Rider.
+3. Adicione seus projetos dentro da pasta `/src/`.
+4. Aproveite uma solução pronta para escalar com qualidade!
+
+## 🛠️ Motivação
+
+Esse repositório foi criado para acelerar a criação de novos projetos .NET, garantindo que todos partam de um padrão de qualidade e organização desde o início.
+
+## 📜 Licença
+
+Este projeto está licenciado sob a [MIT License](./LICENSE).
