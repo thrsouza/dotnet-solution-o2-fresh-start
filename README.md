@@ -30,7 +30,7 @@ O arquivo `Directory.Build.Props` já inclui boas práticas recomendadas para no
   - _Warnings_ tratados como erros
   - _CodeStyle_ validado em tempo de build
 - **Analisador Adicional**:
-  - `SonarAnalyzer.CSharp` (v10.8.0.113526)
+  - `SonarAnalyzer.CSharp` (v10.15.0.120848)
 
 ---
 
